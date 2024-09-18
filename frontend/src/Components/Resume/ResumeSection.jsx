@@ -37,6 +37,11 @@ export const ResumeSection = () => {
   if (!resumeData) {
     return <></>;
   }
+
+  if (!resumeData[0]) {
+    return
+  }
+
   const { title, content, summary, education, experience } = resumeData[0];
 
   return (

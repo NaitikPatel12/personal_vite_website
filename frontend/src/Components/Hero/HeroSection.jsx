@@ -121,7 +121,7 @@ const HeroSection = () => {
         data-aos-delay="100"
       >
         <div id="herotextbox" style={{ justifyContent: "left" }}>
-          <h1>{hereData.name}</h1>
+          <h1>{hereData?.name}</h1>
           <p>
             I'm
             <span> </span>
@@ -135,8 +135,8 @@ const HeroSection = () => {
             />
           </p>
           <div className="hero-social-links">
-            <a
-              href={hereData.github}
+            {HeroSection.github && <a
+              href={hereData?.github}
               className="github"
               target="_blank"
               rel="noreferrer"
@@ -144,9 +144,9 @@ const HeroSection = () => {
               <i>
                 <FaGithub />
               </i>
-            </a>
+            </a>}
             <a
-              href={hereData.linkedin}
+              href={hereData?.linkedin}
               className="linkedin"
               target="_blank"
               rel="noreferrer"

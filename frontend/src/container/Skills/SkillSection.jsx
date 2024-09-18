@@ -1,12 +1,10 @@
-import SkillData from "../../data/skillData.js";
 import { useEffect, useState } from "react";
 import { client } from "../../../client.js";
 import { SkillIcon } from "./SkillIcon.jsx";
 import { PortableText } from "@portabletext/react";
 
 export const SkillsSection = () => {
-  const { skillsLocal } = SkillData;
-  const [skills, setSkills] = useState(skillsLocal);
+  const [skills, setSkills] = useState([]);
   const [skillsDescription, setSkillsDescription] = useState([]);
 
   useEffect(() => {
@@ -20,12 +18,15 @@ export const SkillsSection = () => {
         setSkills(combinedSkills);
         setSkillsDescription(fetchedFactDescription[0].skillsDescription);
       } catch (error) {
-        console.error("Error fetching skills:", error);
+        return
       }
     };
-
     fetchSkills();
   }, []);
+
+  if (skills.length === 0) {
+    return
+  }
 
   const handleMouseOver = (index) => {
     const marble = document.getElementById(`marble-${index}`);

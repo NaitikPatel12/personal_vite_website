@@ -16,7 +16,7 @@ const AboutSection = () => {
       setAbouts(res);
     });
     client.fetch(query2).then((res) => {
-      setAboutDescription(res[0].aboutDescription);
+      setAboutDescription(res[0]?.aboutDescription);
     });
   }, []);
 

@@ -62,6 +62,10 @@ export const Work = () => {
     });
   }, []);
 
+  if (works.length === 0) {
+    return
+  }
+
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);

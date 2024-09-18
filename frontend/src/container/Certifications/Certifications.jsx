@@ -64,6 +64,10 @@ export const Certifications = () => {
     }
   };
 
+  if (certifications.length === 0) {
+    return
+  }
+
   return (
     <section id="certifications" className="certifications section-bg">
       <div className="container" data-aos="fade-up">
